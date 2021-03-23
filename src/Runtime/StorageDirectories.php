@@ -26,7 +26,6 @@ class StorageDirectories
             self::PATH.'/cms/twig',
             self::PATH.'/cms/combiner/assets',
             self::PATH.'/bootstrap/cache',
-            self::PATH.'/framework/down',
             self::PATH.'/framework/testing/disks',
             self::PATH.'/framework/cache',
             self::PATH.'/framework/sessions',
