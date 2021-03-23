@@ -1,11 +1,11 @@
 {
-    "name": "laravel/vapor-core",
+    "name": "zchermit/vapor-core",
     "description": "The kernel and invokation handlers for Laravel Vapor",
     "keywords": [
         "laravel",
         "vapor"
     ],
-    "homepage": "https://github.com/laravel/vapor-core",
+    "homepage": "https://github.com/zchermit/vapor-core",
     "license": "MIT",
     "authors": [
         {
