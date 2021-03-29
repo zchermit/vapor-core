@@ -30,6 +30,7 @@ class StorageDirectories
             self::PATH.'/framework/cache',
             self::PATH.'/framework/sessions',
             self::PATH.'/framework/views',
+            '/var/task/storage/temp/uploads',
         ];
 
         foreach ($directories as $directory) {
