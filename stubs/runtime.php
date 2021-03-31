@@ -12,17 +12,16 @@ $appRoot = $_ENV['LAMBDA_TASK_ROOT'];
 
 /*
  * Vapor: OctoberCMS support
- * Please, read the comments at [OctoberCMS root]/bootstrap/autoload.php
  */
-if (file_exists($appRoot.'/bootstrap/autoload.php')) {
-    require $appRoot.'/bootstrap/autoload.php';
+if (file_exists($appRoot.'/vendor/october/rain/src/Support/helpers.php')) {
+    require $appRoot.'/vendor/october/rain/src/Support/helpers.php';
 
     fwrite(STDERR, 'Loaded OctoberCMS Composer autoload file'.PHP_EOL);
-} else {
-    require $appRoot.'/vendor/autoload.php';
-
-    fwrite(STDERR, 'Loaded Composer autoload file'.PHP_EOL);
 }
+
+require $appRoot.'/vendor/autoload.php';
+
+fwrite(STDERR, 'Loaded Composer autoload file'.PHP_EOL);
 
 /*
 |--------------------------------------------------------------------------
