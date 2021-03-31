@@ -2,6 +2,7 @@
 
 use Illuminate\Http\Request;
 use Laravel\Vapor\Runtime\HttpKernel;
+use Laravel\Vapor\Runtime\StorageDirectories;
 
 /**
  * Laravel - A PHP Framework For Web Artisans.
@@ -57,6 +58,12 @@ require __DIR__.'/vendor/autoload.php';
 */
 
 $app = require_once __DIR__.'/bootstrap/app.php';
+
+/*
+ * Vapor: setting temp path to avoid exception like this
+ * file_put_contents(/var/task/storage/temp/uploads/74ba91a895d49880611178b02abd88a9.JPG)
+ */
+$app->setTempPath(StorageDirectories::PATH);
 
 /*
 |--------------------------------------------------------------------------
