@@ -10,9 +10,19 @@ if (! file_exists('/tmp/opcache')) {
 
 $appRoot = $_ENV['LAMBDA_TASK_ROOT'];
 
-require $appRoot.'/vendor/autoload.php';
+/*
+ * Vapor: OctoberCMS support
+ * Please, read the comments at [OctoberCMS root]/bootstrap/autoload.php
+ */
+if (file_exists($appRoot.'/bootstrap/autoload.php')) {
+    require $appRoot.'/bootstrap/autoload.php';
 
-fwrite(STDERR, 'Loaded Composer autoload file'.PHP_EOL);
+    fwrite(STDERR, 'Loaded OctoberCMS Composer autoload file'.PHP_EOL);
+} else {
+    require $appRoot.'/vendor/autoload.php';
+
+    fwrite(STDERR, 'Loaded Composer autoload file'.PHP_EOL);
+}
 
 /*
 |--------------------------------------------------------------------------
