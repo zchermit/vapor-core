@@ -12,6 +12,26 @@ define('LARAVEL_START', microtime(true));
 
 /*
 |--------------------------------------------------------------------------
+| Register Core Helpers
+|--------------------------------------------------------------------------
+|
+| We cannot rely on Composer's load order when calculating the weight of
+| each package. This line ensures that the core global helpers are
+| always given priority one status.
+|
+*/
+
+$helperPath = __DIR__.'/vendor/october/rain/src/Support/helpers.php';
+
+if (!file_exists($helperPath)) {
+    fwrite(STDERR, 'Missing OctoberCMS vendor files.'.PHP_EOL);
+    exit(1);
+}
+
+require_once $helperPath;
+
+/*
+|--------------------------------------------------------------------------
 | Register The Auto Loader
 |--------------------------------------------------------------------------
 |
