@@ -59,6 +59,11 @@ with(require __DIR__.'/bootstrap/app.php', function ($app) {
     StorageDirectories::create();
 
     $app->useStoragePath(StorageDirectories::PATH);
+    /*
+     * Vapor: setting temp path to avoid exception like this
+     * file_put_contents(/var/task/storage/temp/uploads/74ba91a895d49880611178b02abd88a9.JPG)
+     */
+    $app->setTempPath(StorageDirectories::PATH);
 
     fwrite(STDERR, 'Caching Laravel configuration'.PHP_EOL);
 
